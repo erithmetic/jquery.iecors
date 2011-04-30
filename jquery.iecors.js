@@ -1,7 +1,9 @@
 (function( jQuery ) {
   // Create the request object
   // (This is still attached to ajaxSettings for backward compatibility)
-  jQuery.ajaxSettings.xdr = function() { return new window.XDomainRequest(); };
+  jQuery.ajaxSettings.xdr = function() {
+    return (window.XDomainRequest ? new window.XDomainRequest() : null);
+  };
 
   // Determine support properties
   (function( xdr ) {
